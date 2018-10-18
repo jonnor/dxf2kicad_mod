@@ -62,6 +62,7 @@ _CmdList = ('at',
             'thickness',
             'font',
             'hide',
+            'descr',
             'fp_line',
             'fp_circle',
             'fp_arc',
@@ -99,6 +100,7 @@ class Module(Cmd):
                 effects(font(thickness(0.2)))
             )))
 
-    def __init__(self, module_name, children=()):
+    def __init__(self, module_name, children=(), description='generated with dxf2kicad_mod'):
+        desc = descr('"{}"'.format(description))
         super().__init__('module', module_name,
-                         children=self.head+tuple(children))
+                         children=self.head+(desc,)+tuple(children))
