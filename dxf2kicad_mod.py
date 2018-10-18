@@ -29,7 +29,7 @@ def _endpoints(entity):
                 _arc_point(entity.center, entity.radius, entity.end_angle))
     else:
         raise TypeError(
-            "[Error]: Unexpceted dxftype {}".format(entity.dxftype))
+            "[Error]: Unexpected dxftype {}".format(entity.dxftype))
 
 
 def _touched(p1, p2):
@@ -64,7 +64,7 @@ def _points_in_entity(ety):
                 angles(ety.start_angle, ety.end_angle, ety.radius)]
     else:
         raise TypeError(
-            "[Error]: Unexpceted dxftype {}".format(ety.dxftype))
+            "[Error]: Unexpected dxftype {}".format(ety.dxftype))
 
 
 def fp_polys(layer, entities):
