@@ -85,6 +85,15 @@ def fp_polys(layer, entities):
         return None, None
 
     def poly(e):
+
+        if "POLYLINE" == e.dxftype:
+            if e.mode != 'polyline2d':
+                raise NotImplementedError("Only POLYLINE straight-line segments supported (no splines or beziers)")
+
+            points = [ (p[0], p[1]) for p in e.points ]
+            yield points
+            return
+
         start, next_start = _endpoints(e)
         yield [start]  # yield start points
         while True:
